@@ -1,110 +1,737 @@
-Code (html)
+BuildClarity Landing Page Edit
 html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    BuildClarity – Dream Home Plans, Engineered with Care
-    <meta name="description" content="Licensed civil engineers delivering safe, compliant dream‑home plans. Plan clearly, build clarity.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {font-family: Arial, sans-serif; margin:0; line-height:1.6; color:#333;}
-        header {background:#003366; color:#fff; padding:40px 20px; text-align:center;}
-        header h1 {margin:0; font-size:2.5rem;}
-        header p {margin:10px 0 0; font-size:1.2rem;}
-        .cta {display:inline-block; margin:20px 10px; padding:12px 24px;
-               background:#ff9900; color:#fff; text-decoration:none; border-radius:4px;}
-        nav {background:#f4f4f4; padding:10px 20px;}
-        nav a {margin:0 15px; text-decoration:none; color:#003366; font-weight:bold;}
-        .section {padding:40px 20px; max-width:1200px; margin:auto;}
-        .section h2 {color:#003366; margin-bottom:20px;}
-        .grid {display:flex; flex-wrap:wrap; gap:20px;}
-        .grid .card {flex:1 1 calc(33% - 20px); background:#fafafa; padding:20px;
-                     border:1px solid #ddd; border-radius:4px;}
-        .grid .card h3 {margin-top:0; color:#003366;}
-        footer {background:#222; color:#ddd; text-align:center; padding:20px;}
-        @media (max-width:768px){
-            .grid .card {flex:1 1 100%;}
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  BuildClarity.in | Plan clearly Build confidently
+  <meta name="description" content="BuildClarity.in helps you plan your dream home clearly and build confidently with municipality approval support." />
+
+  <style>
+    :root {
+      --primary: #0f766e;
+      --primary-dark: #115e59;
+      --accent: #f59e0b;
+      --dark: #111827;
+      --muted: #6b7280;
+      --light: #f8fafc;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--primary-dark);
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: #374151;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(15, 118, 110, 0.22);
+    }
+
+    .hero {
+      padding: 90px 0 60px;
+      background:
+        radial-gradient(circle at top left, rgba(245, 158, 11, 0.18), transparent 34%),
+        linear-gradient(135deg, #ecfeff 0%, #ffffff 46%, #f0fdfa 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: #ccfbf1;
+      color: var(--primary-dark);
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .badge::before {
+      content: "✓";
+      display: grid;
+      place-items: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    h1 {
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+      margin-bottom: 22px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(20px, 2.4vw, 30px);
+      font-weight: 900;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+    }
+
+    .hero-copy {
+      max-width: 620px;
+      color: #4b5563;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 16px 30px rgba(15, 118, 110, 0.25);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--dark);
+      border: 1px solid var(--border);
+    }
+
+    .trust-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 620px;
+    }
+
+    .trust-point {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      font-weight: 800;
+      color: #374151;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 28px;
+      border-radius: 32px;
+      background: #ffffff;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 10px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+
+    .plan-preview {
+      margin-top: 12px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #f0fdfa, #fffbeb);
+      border: 1px solid var(--border);
+      padding: 22px;
+    }
+
+    .plan-preview h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .plan-lines {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .line {
+      height: 14px;
+      border-radius: 999px;
+      background: #d1fae5;
+    }
+
+    .line.short {
+      width: 62%;
+    }
+
+    .line.mid {
+      width: 78%;
+    }
+
+    .approval-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .approval-box strong {
+      color: var(--primary-dark);
+    }
+
+    .stamp {
+      display: grid;
+      place-items: center;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: #fef3c7;
+      color: #b45309;
+      font-weight: 900;
+      border: 2px dashed #f59e0b;
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-alt {
+      background: var(--light);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 13px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+      margin-bottom: 16px;
+    }
+
+    .section-heading p,
+    .feature-card p,
+    .pricing-card p,
+    .step-card p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .feature-grid,
+    .pricing-grid,
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .feature-card,
+    .pricing-card,
+    .step-card {
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 18px;
+      border-radius: 16px;
+      background: #ccfbf1;
+      color: var(--primary-dark);
+      font-weight: 900;
+      font-size: 22px;
+    }
+
+    .feature-card h3,
+    .pricing-card h3,
+    .step-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .pricing-grid {
+      align-items: stretch;
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--primary);
+      transform: translateY(-8px);
+      position: relative;
+    }
+
+    .price {
+      margin: 18px 0;
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
+
+    .price span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 10px;
+      margin: 20px 0 24px;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 10px;
+      color: #374151;
+      font-weight: 700;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+      padding: 34px;
+      border-radius: 30px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h2 {
+      margin-bottom: 16px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      font: inherit;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+    }
+
+    footer {
+      padding: 34px 0;
+      background: #0f172a;
+      color: #d1d5db;
+      text-align: center;
+    }
+
+    footer strong {
+      color: #ffffff;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid,
+      .pricing-grid,
+      .step-grid,
+      .trust-points {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-card.featured {
+        transform: none;
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#top">BuildClarity<span>.in</span></a>
 
-<header>
-    <h1>Plan Clearly, Build Clarity</h1>
-    <p>Dream Home Plans – Engineered with Care</p>
-    <a href="#contact" class="cta">Schedule a Consultation</a>
-    <a href="#contact" class="cta">Request a Proposal</a>
-</header>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#architecture">Architecture</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-<nav>
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#why">Why Choose Us</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<section id="services" class="section">
-    <h2>Our Services</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Planning & Feasibility</h3>
-            <p>Site assessment & concept planning for your dream home.</p>
-        </div>
-        <div class="card">
-            <h3>Structural Design</h3>
-            <p>Detailed engineering drawings prepared to IS‑Code & local regulations.</p>
-        </div>
-        <div class="card">
-            <h3>Construction Documentation</h3>
-            <p>Permit‑ready drawings and approval assistance.</p>
-        </div>
-        <div class="card">
-            <h3>Construction Supervision</h3>
-            <p>On‑site quality checks and progress monitoring.</p>
-        </div>
-        <div class="card">
-            <h3>Post‑Construction Support</h3>
-            <p>Maintenance guidance and as‑built documentation.</p>
-        </div>
+      <a class="nav-cta" href="#contact">Free Consultation</a>
     </div>
-</section>
+  </header>
 
-<section id="why" class="section" style="background:#f9f9f9;">
-    <h2>Why Choose Us?</h2>
-    <ul>
-        <li><strong>Licensed Engineers</strong> – All designs are created and signed off by qualified, licensed civil engineers.</li>
-        <li><strong>Safety &amp; Compliance</strong> – Every plan follows IS codes, NBC requirements, and municipal regulations.</li>
-        <li><strong>Transparent Pricing</strong> – Clear packages for standard dream‑home plans; custom quotes for complex projects.</li>
-        <li><strong>Fast Turn‑Around</strong> – Concept to final drawings in as little as 5 days (no discounts advertised).</li>
-    </ul>
-</section>
+  <main>
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">Municipality approval guidance for your dream home</div>
 
-<section id="process" class="section">
-    <h2>Our Process</h2>
-    <ol>
-        <li><strong>Initial Consultation & Site Assessment</strong> – Understand your vision for the dream home.</li>
-        <li><strong>Conceptual Planning & Feasibility Study</strong> – Sketches and feasibility reports.</li>
-        <li><strong>Detailed Structural Design & Drawings</strong> – Full engineering set‑documents.</li>
-        <li><strong>Documentation & Approvals Assistance</strong> – Permit filing and liaison with authorities.</li>
-        <li><strong>Construction Supervision & Quality Assurance</strong> – On‑site oversight.</li>
-        <li><strong>Project Handover & Post‑Completion Support</strong> – Final walkthrough and maintenance guide.</li>
-    </ol>
-</section>
+          <h1>Plan clearly<br />Build confidently</h1>
 
-<section id="contact" class="section" style="background:#f0f8ff;">
-    <h2>Get Started</h2>
-    <p>Ready to turn your dream home into reality? Contact us today.</p>
-    <a href="mailto:info@buildclarity.in" class="cta">Schedule a Consultation</a>
-    <a href="mailto:info@buildclarity.in" class="cta">Request a Detailed Proposal</a>
-</section>
+          <p class="hero-subtitle">Get Municipality Approval for your dream home plan.</p>
 
-<footer>
-    <p>Plan Clearly, Build Clarity – © 2026 BuildClarity.in</p>
-    <p><a href="#home" style="color:#ddd; text-decoration:underline;">Home</a> |
-       <a href="#services" style="color:#ddd; text-decoration:underline;">Services</a> |
-       <a href="#contact" style="color:#ddd; text-decoration:underline;">Contact</a></p>
-</footer>
+          <p class="hero-copy">
+            Clear architecture plans, practical drawings, and approval-ready guidance so your dream home can move from idea to execution with less confusion.
+          </p>
 
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Get a Clear Plan</a>
+            <a class="btn btn-secondary" href="#architecture">See Services</a>
+          </div>
+
+          <div class="trust-points">
+            <div class="trust-point">Lead-focused layout</div>
+            <div class="trust-point">Approval-ready clarity</div>
+            <div class="trust-point">Dream-home positioning</div>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="Architecture plan preview">
+          <div class="plan-preview">
+            <h3>Your Dream Home Plan</h3>
+            <p>Concept → Drawing → Municipality Support → Confident Execution</p>
+
+            <div class="plan-lines">
+              <div class="line"></div>
+              <div class="line mid"></div>
+              <div class="line short"></div>
+              <div class="line"></div>
+            </div>
+
+            <div class="approval-box">
+              <div>
+                <strong>Municipality Approval</strong>
+                <div>Approval-ready documentation support</div>
+              </div>
+              <div class="stamp">OK</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Architecture</span>
+          <h2>Your dream home starts with a clear plan.</h2>
+          <p>
+            A strong website should remove doubt fast. This layout leads with your promise, explains the value, and pushes visitors toward one action: contact you.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="icon">01</div>
+            <h3>Smart Dream Home Planning</h3>
+            <p>Functional layouts designed around lifestyle, budget, plot conditions, and future construction clarity.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon">02</div>
+            <h3>Municipality Approval Support</h3>
+            <p>Approval-focused drawings and documentation guidance to reduce avoidable confusion before execution.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon">03</div>
+            <h3>Execution-Ready Clarity</h3>
+            <p>Plans that help you, your family, and your contractor understand the dream home direction clearly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="process">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Process</span>
+          <h2>Simple steps from idea to confident action.</h2>
+          <p>
+            The visitor should feel guided, not overwhelmed. Use short steps, clear benefits, and direct calls to action.
+          </p>
+        </div>
+
+        <div class="step-grid">
+          <div class="step-card">
+            <div class="icon">A</div>
+            <h3>Discuss Your Dream Home</h3>
+            <p>Share your plot details, budget, family needs, and approval expectations.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="icon">B</div>
+            <h3>Get a Clear Plan</h3>
+            <p>Receive architecture direction that is practical, understandable, and approval-aware.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="icon">C</div>
+            <h3>Build With Confidence</h3>
+            <p>Move forward with a stronger plan, fewer doubts, and clearer next steps.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Pricing</span>
+          <h2>Choose the right clarity for your dream home.</h2>
+          <p>
+            The pricing section is kept clean. No popup, no distracting launch offer, no quick reference clutter.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>Plan Clarity</h3>
+            <div class="price">₹9,999<span>for initial concept discussion</span></div>
+            <p>Best for owners who want early direction before committing to full planning.</p>
+            <ul class="check-list">
+              <li>Requirement discussion</li>
+              <li>Basic planning direction</li>
+              <li>Next-step roadmap</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact">Enquire Now</a>
+          </div>
+
+          <div class="pricing-card featured">
+            <h3>Approval Ready</h3>
+            <div class="price">₹24,999<span>for dream home planning support</span></div>
+            <p>Best for visitors who want a clear plan with municipality approval guidance.</p>
+            <ul class="check-list">
+              <li>Detailed architecture planning</li>
+              <li>Municipality approval support</li>
+              <li>Revision discussion</li>
+              <li>Execution-ready direction</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact">Book Consultation</a>
+          </div>
+
+          <div class="pricing-card">
+            <h3>Complete Clarity</h3>
+            <div class="price">Custom<span>for larger dream home projects</span></div>
+            <p>Best for bigger properties, complex requirements, or premium planning needs.</p>
+            <ul class="check-list">
+              <li>Custom planning package</li>
+              <li>Approval-focused documentation</li>
+              <li>Priority consultation</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact">Request Quote</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <span class="eyebrow">Contact</span>
+            <h2>Get a clear direction for your dream home.</h2>
+            <p>
+              This form is designed to convert serious visitors into leads. Keep it short, direct, and easy to complete.
+            </p>
+          </div>
+
+          <form id="leadForm">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="tel" name="phone" placeholder="Phone Number" required />
+            <input type="text" name="location" placeholder="Plot Location / City" required />
+            <select name="service" required>
+              <option value="">Select Service</option>
+              <option>Architecture Planning</option>
+              <option>Municipality Approval Support</option>
+              <option>Dream Home Consultation</option>
+            </select>
+            <textarea name="message" placeholder="Tell us about your dream home requirement..."></textarea>
+            <button class="btn btn-primary" type="submit">Send Enquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>BuildClarity.in</strong> — Plan clearly. Build confidently.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", () => {
+        const target = document.querySelector(link.getAttribute("href"));
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    document.getElementById("leadForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      alert("Thank you! Your dream home enquiry has been received.");
+      this.reset();
+    });
+  </script>
 </body>
 </html>
