@@ -1,737 +1,612 @@
-BuildClarity Landing Page Edit
-html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BuildClarity.in | Civil Engineer for Dream Homes</title>
-  <meta name="description" content="BuildClarity.in helps you build your dream home with practical civil engineering guidance, budget-conscious planning, healthy living spaces, and municipality approval support." />
-
-  <style>
-    :root {
-      --primary: #0f766e;
-      --primary-dark: #115e59;
-      --accent: #f59e0b;
-      --dark: #111827;
-      --muted: #6b7280;
-      --light: #f8fafc;
-      --card: #ffffff;
-      --border: #e5e7eb;
-      --shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
-      --radius: 22px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--dark);
-      background: #ffffff;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      color: var(--primary-dark);
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      color: #374151;
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: var(--primary);
-      color: #ffffff;
-      font-weight: 800;
-      box-shadow: 0 10px 24px rgba(15, 118, 110, 0.22);
-    }
-
-    .hero {
-      padding: 90px 0 60px;
-      background:
-        radial-gradient(circle at top left, rgba(245, 158, 11, 0.18), transparent 34%),
-        linear-gradient(135deg, #ecfeff 0%, #ffffff 46%, #f0fdfa 100%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items: center;
-      gap: 48px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: #ccfbf1;
-      color: var(--primary-dark);
-      font-weight: 800;
-      font-size: 14px;
-      margin-bottom: 22px;
-    }
-
-    .badge::before {
-      content: "✓";
-      display: grid;
-      place-items: center;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: 900;
-    }
-
-    h1 {
-      font-size: clamp(44px, 7vw, 78px);
-      line-height: 0.95;
-      letter-spacing: -0.07em;
-      margin-bottom: 22px;
-    }
-
-    .hero-subtitle {
-      font-size: clamp(20px, 2.4vw, 30px);
-      font-weight: 900;
-      color: var(--primary-dark);
-      margin-bottom: 16px;
-    }
-
-    .hero-copy {
-      max-width: 620px;
-      color: #4b5563;
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 34px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-weight: 900;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #ffffff;
-      box-shadow: 0 16px 30px rgba(15, 118, 110, 0.25);
-    }
-
-    .btn-secondary {
-      background: #ffffff;
-      color: var(--dark);
-      border: 1px solid var(--border);
-    }
-
-    .trust-points {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      max-width: 620px;
-    }
-
-    .trust-point {
-      padding: 14px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(229, 231, 235, 0.9);
-      font-weight: 800;
-      color: #374151;
-    }
-
-    .hero-card {
-      position: relative;
-      padding: 28px;
-      border-radius: 32px;
-      background: #ffffff;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(229, 231, 235, 0.9);
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: 10px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-    }
-
-    .plan-preview {
-      margin-top: 12px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, #f0fdfa, #fffbeb);
-      border: 1px solid var(--border);
-      padding: 22px;
-    }
-
-    .plan-preview h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-      letter-spacing: -0.03em;
-    }
-
-    .plan-lines {
-      display: grid;
-      gap: 12px;
-      margin: 22px 0;
-    }
-
-    .line {
-      height: 14px;
-      border-radius: 999px;
-      background: #d1fae5;
-    }
-
-    .line.short {
-      width: 62%;
-    }
-
-    .line.mid {
-      width: 78%;
-    }
-
-    .approval-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 16px;
-      border-radius: 18px;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
-    }
-
-    .approval-box strong {
-      color: var(--primary-dark);
-    }
-
-    .stamp {
-      display: grid;
-      place-items: center;
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: #fef3c7;
-      color: #b45309;
-      font-weight: 900;
-      border: 2px dashed #f59e0b;
-    }
-
-    .section {
-      padding: 86px 0;
-    }
-
-    .section-alt {
-      background: var(--light);
-    }
-
-    .section-heading {
-      max-width: 760px;
-      margin-bottom: 36px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 12px;
-      color: var(--primary);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 13px;
-    }
-
-    h2 {
-      font-size: clamp(32px, 4vw, 52px);
-      line-height: 1.05;
-      letter-spacing: -0.055em;
-      margin-bottom: 16px;
-    }
-
-    .section-heading p,
-    .feature-card p,
-    .pricing-card p,
-    .step-card p {
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .feature-grid,
-    .pricing-grid,
-    .step-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .feature-card,
-    .pricing-card,
-    .step-card {
-      padding: 28px;
-      border-radius: var(--radius);
-      background: var(--card);
-      border: 1px solid var(--border);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
-    }
-
-    .icon {
-      display: grid;
-      place-items: center;
-      width: 48px;
-      height: 48px;
-      margin-bottom: 18px;
-      border-radius: 16px;
-      background: #ccfbf1;
-      color: var(--primary-dark);
-      font-weight: 900;
-      font-size: 22px;
-    }
-
-    .feature-card h3,
-    .pricing-card h3,
-    .step-card h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-      letter-spacing: -0.03em;
-    }
-
-    .pricing-grid {
-      align-items: stretch;
-    }
-
-    .pricing-card.featured {
-      border: 2px solid var(--primary);
-      transform: translateY(-8px);
-      position: relative;
-    }
-
-    .price {
-      margin: 18px 0;
-      font-size: 38px;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-    }
-
-    .price span {
-      display: block;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0;
-    }
-
-    .check-list {
-      display: grid;
-      gap: 10px;
-      margin: 20px 0 24px;
-      list-style: none;
-    }
-
-    .check-list li {
-      display: flex;
-      gap: 10px;
-      color: #374151;
-      font-weight: 700;
-    }
-
-    .check-list li::before {
-      content: "✓";
-      color: var(--primary);
-      font-weight: 900;
-    }
-
-    .contact-card {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
-      align-items: start;
-      padding: 34px;
-      border-radius: 30px;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .contact-card h2 {
-      margin-bottom: 16px;
-    }
-
-    .contact-card p {
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    form {
-      display: grid;
-      gap: 14px;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      font: inherit;
-      outline: none;
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
-    }
-
-    footer {
-      padding: 34px 0;
-      background: #0f172a;
-      color: #d1d5db;
-      text-align: center;
-    }
-
-    footer strong {
-      color: #ffffff;
-    }
-
-    @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero-grid,
-      .contact-card {
-        grid-template-columns: 1fr;
-      }
-
-      .feature-grid,
-      .pricing-grid,
-      .step-grid,
-      .trust-points {
-        grid-template-columns: 1fr;
-      }
-
-      .pricing-card.featured {
-        transform: none;
-      }
-
-      .hero {
-        padding-top: 64px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BuildClarity — Plan Clearly. Build Confidently.</title>
+<meta name="description" content="Get your Vastu-compliant, municipality-approved Dream Home plan in 5 days starting at ₹7,999. Trusted by 1000+ Happy Homeowners across India.">
+
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
+
+<!-- SEO Open Graph -->
+<meta property="og:title" content="BuildClarity — Your Dream Home, Planned Right">
+<meta property="og:description" content="Engineer-led Dream Home planning starting at ₹7,999. Delivered in 5 days.">
+<meta property="og:image" content="images/logo.png">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --brand: #E8861A;
+    --brand-dark: #C96F0C;
+    --brand-light: #FCD9A8;
+    --surface: #FBF9F5;
+    --ink: #1A1714;
+    --muted: #6b7280;
+  }
+  body { font-family: 'Inter', sans-serif; background-color: var(--surface); color: var(--ink); }
+  .font-display { font-family: 'Space Grotesk', sans-serif; }
+  
+  /* Dream Home Gradient Animation */
+  .dream-text {
+    background: linear-gradient(135deg, #E8861A, #F5A623, #FF8C42, #E8861A);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s ease infinite;
+    font-weight: 900;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  /* Glow effect for Dream */
+  .dream-glow {
+    text-shadow: 0 0 30px rgba(232, 134, 26, 0.4);
+  }
+  
+  .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  
+  .card-soft {
+    background: white;
+    border: 1px solid #E8E2D5;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+  }
+  .card-soft:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(232, 134, 26, 0.1);
+    border-color: var(--brand);
+  }
+  
+  .logo-hero {
+    filter: drop-shadow(0 10px 30px rgba(232, 134, 26, 0.35));
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  
+  /* WhatsApp Button - No Pulse */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    background: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: transform 0.3s ease;
+  }
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Transparent Pricing Badge - No Pulse */
+  .transparent-badge {
+    background: linear-gradient(135deg, #E8861A, #F5A623);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 20px rgba(232, 134, 26, 0.3);
+  }
+  
+  /* Process Step Numbers */
+  .step-number {
+    background: linear-gradient(135deg, #E8861A, #F5A623);
+    color: white;
+    font-weight: 900;
+    font-size: 28px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 10px 25px rgba(232, 134, 26, 0.3);
+  }
+  
+  /* Approximate Badge */
+  .approx-badge {
+    background: #FEF3C7;
+    color: #92400E;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-left: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+</style>
 </head>
+<body class="antialiased">
 
-<body>
-  <header>
-    <div class="container nav">
-      <a class="logo" href="#top">BuildClarity<span>.in</span></a>
-
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#civil-engineers">Civil Engineers</a>
-        <a href="#process">Process</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <a class="nav-cta" href="#contact">Free Consultation</a>
+<!-- NAVIGATION -->
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2">
+      <img src="images/logo.png" alt="BuildClarity Logo" class="w-10 h-10 rounded-full object-cover shadow-md">
+      <span class="font-display font-bold text-lg tracking-tight">BUILD<span class="text-[#E8861A]">CLARITY</span></span>
+    </a>
+    <div class="hidden md:flex items-center gap-6 text-sm font-bold text-gray-700">
+      <a href="#services" class="hover:text-[#E8861A] transition">Services</a>
+      <a href="#process" class="hover:text-[#E8861A] transition">Process</a>
+      <a href="#pricing" class="hover:text-[#E8861A] transition">Pricing</a>
+      <a href="#testimonials" class="hover:text-[#E8861A] transition">Reviews</a>
     </div>
-  </header>
+    <a href="#contact" class="bg-[#1A1714] text-white px-5 py-2 rounded-full text-sm font-bold shadow-xl hover:bg-[#E8861A] transition">Start Plan</a>
+  </div>
+</nav>
 
-  <main>
-    <section class="hero" id="top">
-      <div class="container hero-grid">
-        <div>
-          <div class="badge">Civil engineer POV for your dream home</div>
+<!-- HERO SECTION -->
+<section class="pt-32 pb-16 px-5 text-center relative overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(232,134,26,0.08)_0%,_transparent_70%)] pointer-events-none"></div>
+  <div class="max-w-4xl mx-auto relative">
+    
+    <div class="flex justify-center mb-8">
+      <img src="images/logo.png" alt="BuildClarity - Plan Clearly. Build Confidently." class="logo-hero w-32 h-32 sm:w-40 sm:h-40 rounded-full">
+    </div>
 
-          <h1>Plan clearly<br />Build confidently</h1>
+    <div class="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 text-[#E8861A] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+      ✨ Now Accepting Orders
+    </div>
+    
+    <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
+      Your <span class="dream-text dream-glow">Dream Home</span>,<br>
+      planned right the <em class="not-italic relative inline-block">
+        <span class="relative z-10">first time</span>
+        <span class="absolute bottom-1 left-0 right-0 h-3 bg-orange-200 -z-0"></span>
+      </em>.
+    </h1>
+    
+    <p class="text-gray-600 text-lg sm:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
+      Skip the ₹15,000-₹20,000 architect consultation. Get a <strong class="text-[#1A1714]">municipality-compliant home plan</strong> from licensed engineers — delivered in just <strong class="text-[#E8861A]">5 days</strong>.
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+      <a href="#contact" class="bg-[#E8861A] text-white px-8 py-4 rounded-full font-bold shadow-2xl shadow-orange-200 hover:scale-105 transition transform">
+        Get Started →
+      </a>
+      <a href="#pricing" class="bg-white border border-gray-200 px-8 py-4 rounded-full font-bold hover:bg-gray-50 hover:border-[#E8861A] transition">
+        View Pricing
+      </a>
+    </div>
 
-          <p class="hero-subtitle">Get civil engineering guidance to build your dream home in a better environment with a minimal, practical budget.</p>
+    <p class="text-sm text-gray-500 mb-2">
+      Plans Starting at just <strong class="text-[#E8861A]">₹7,999</strong> 
+      <span class="line-through text-gray-400">₹10,999</span> 
+      <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded font-bold text-xs">Save 27%</span>
+    </p>
+  </div>
+</section>
 
-          <p class="hero-copy">
-            As a civil engineer, I guide you on how your house can be built safely, comfortably, and economically — with the right civil planning, healthy spaces, smart budgeting, and approval-ready guidance before construction starts.
-          </p>
+<!-- TRUST BADGES -->
+<section class="py-10 px-5 bg-white border-y border-gray-100">
+  <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <div class="flex flex-col items-center gap-2">
+      <div class="w-12 h-12 bg-orange-100 rounded-full grid place-items-center text-2xl">✓</div>
+      <div class="font-bold text-sm">Municipality Compliant</div>
+    </div>
+    <div class="flex flex-col items-center gap-2">
+      <div class="w-12 h-12 bg-orange-100 rounded-full grid place-items-center text-2xl">⚡</div>
+      <div class="font-bold text-sm">5-Day Delivery</div>
+    </div>
+    <div class="flex flex-col items-center gap-2">
+      <div class="w-12 h-12 bg-orange-100 rounded-full grid place-items-center text-2xl">🔄</div>
+      <div class="font-bold text-sm">Free Revisions</div>
+    </div>
+    <div class="flex flex-col items-center gap-2">
+      <div class="w-12 h-12 bg-orange-100 rounded-full grid place-items-center text-2xl">👨‍💼</div>
+      <div class="font-bold text-sm">Licensed Engineers</div>
+    </div>
+  </div>
+</section>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Get a Civil Plan</a>
-            <a class="btn btn-secondary" href="#architecture">See Services</a>
-          </div>
+<!-- COMPLETE ENGINEERING SOLUTIONS -->
+<section id="services" class="py-20 px-5 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-[#E8861A] font-bold text-xs uppercase tracking-widest">Our Services</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold mt-3 mb-4">
+        <span class="dream-text">Complete</span> Engineering Solutions
+      </h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">
+        From home planning to construction — everything you need under one roof
+      </p>
+    </div>
 
-          <div class="trust-points">
-            <div class="trust-point">Healthy living environment</div>
-            <div class="trust-point">Minimal budget planning</div>
-            <div class="trust-point">Safe civil execution</div>
-          </div>
-        </div>
-
-        <div class="hero-card" aria-label="Civil engineering plan preview">
-          <div class="plan-preview">
-            <h3>Your Civil Engineer’s POV</h3>
-            <p>Plot Understanding → Budget Planning → Healthy Layout → Municipality Support → Smart Construction</p>
-
-            <div class="plan-lines">
-              <div class="line"></div>
-              <div class="line mid"></div>
-              <div class="line short"></div>
-              <div class="line"></div>
-            </div>
-
-            <div class="approval-box">
-              <div>
-                <strong>Civil Engineer + Municipality Approval</strong>
-                <div>Budget-aware civil and approval-ready documentation support</div>
-              </div>
-              <div class="stamp">OK</div>
-            </div>
-          </div>
-        </div>
+    <div class="mb-12">
+      <div class="text-center mb-6">
+        <span class="inline-block bg-orange-100 text-[#E8861A] px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">🏠 Home Planning</span>
       </div>
-    </section>
-
-    <section class="section" id="civil-engineers">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Civil Engineers</span>
-          <h2>Your dream home should be planned by a civil engineer — not just drawn.</h2>
-          <p>
-            As a civil engineer, I show you how your house can be built in a healthy environment with a minimal, practical budget — while keeping safety, comfort, approvals, and long-term value intact.
-          </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="card-soft p-6">
+          <div class="text-3xl mb-3">📐</div>
+          <h3 class="font-bold text-lg mb-2">2D Floor Plans</h3>
+          <p class="text-sm text-gray-600">Detailed room layouts with exact dimensions, doors, windows & furniture placement.</p>
         </div>
 
-        <div class="feature-grid">
-          <div class="feature-card">
-            <div class="icon">01</div>
-            <h3>Budget-Smart Civil Planning</h3>
-            <p>I study your plot, requirements, family needs, and budget to create a practical civil plan that avoids unnecessary cost and confusion.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="icon">02</div>
-            <h3>Healthy Environment & Practical Living Spaces</h3>
-            <p>Every room, ventilation, sunlight, movement, and service area is planned so your dream home feels comfortable, functional, healthy, and future-ready.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="icon">03</div>
-            <h3>Municipality Approval Support</h3>
-            <p>Approval-focused drawings and documentation guidance to reduce avoidable confusion before execution.</p>
-          </div>
+        <div class="card-soft p-6">
+          <div class="text-3xl mb-3">📏</div>
+          <h3 class="font-bold text-lg mb-2">Structural Drawings</h3>
+          <p class="text-sm text-gray-600">Foundation, columns, beam details prepared by licensed engineers for safe construction.</p>
         </div>
+
+        <div class="card-soft p-6">
+          <div class="text-3xl mb-3">🏡</div>
+          <h3 class="font-bold text-lg mb-2">3D Elevation Design</h3>
+          <p class="text-sm text-gray-600">Beautiful 3D front elevation and exterior design to visualize your home before construction.</p>
+        </div>
+
+        <div class="card-soft p-6">
+          <div class="text-3xl mb-3">📋</div>
+          <h3 class="font-bold text-lg mb-2">Municipality Documents</h3>
+          <p class="text-sm text-gray-600">All drawings formatted per Nagar Nigam requirements for quick building plan approval.</p>
+        </div>
+
+        <div class="card-soft p-6">
+          <div class="text-3xl mb-3">🧭</div>
+          <h3 class="font-bold text-lg mb-2">Vastu Compliance</h3>
+          <p class="text-sm text-gray-600">Room placement aligned with Vastu Shastra principles for positive energy flow.</p>
+        </div>
+
+        <div class="card-soft p-6">
+          <div class="text-3xl mb-3">💰</div>
+          <h3 class="font-bold text-lg mb-2">
+            Cost Estimation
+            <span class="approx-badge">Approx</span>
+          </h3>
+          <p class="text-sm text-gray-600">Approximate material and construction cost estimate to plan your budget accurately.</p>
+        </div>
+
       </div>
-    </section>
+    </div>
 
-    <section class="section section-alt" id="process">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">My Civil Engineering POV</span>
-          <h2>From plot to dream home with civil clarity.</h2>
-          <p>
-            I keep the process simple: understand your land and budget, plan the right house, support approvals, and guide you before construction decisions become expensive mistakes.
-          </p>
-        </div>
-
-        <div class="step-grid">
-          <div class="step-card">
-            <div class="icon">1</div>
-            <h3>Understand Your Plot & Budget</h3>
-            <p>Share your plot details, budget, family needs, site conditions, and approval expectations so the plan starts with reality, not assumptions.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="icon">2</div>
-            <h3>Plan Your Dream Home Smartly</h3>
-            <p>Receive a practical civil engineering direction that balances healthy environment, safety, approvals, and minimal budget.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="icon">3</div>
-            <h3>Approve, Execute & Build Confidently</h3>
-            <p>Move forward with a stronger civil plan, fewer doubts, clearer approvals, and smarter construction next steps.</p>
-          </div>
-        </div>
+    <div>
+      <div class="text-center mb-6">
+        <span class="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">🏗️ Construction (MH & GJ Only)</span>
       </div>
-    </section>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-    <section class="section" id="pricing">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Civil Engineering Packages</span>
-          <h2>Choose the civil support that fits your dream home budget.</h2>
-          <p>
-            Clear packages for owners who want practical civil guidance, municipality support, and budget-conscious construction decisions.
-          </p>
+        <div class="card-soft p-6">
+          <div class="text-3xl mb-3">✅</div>
+          <h3 class="font-bold text-lg mb-2">Drawing Verification</h3>
+          <p class="text-sm text-gray-600">Expert verification of existing drawings for structural safety, compliance & design accuracy.</p>
         </div>
 
-        <div class="pricing-grid">
-          <div class="pricing-card">
-            <h3>Civil Engineer Consultation</h3>
-            <div class="price">₹9,999<span>for civil engineer POV and budget discussion</span></div>
-            <p>Best for owners who want to understand how to build their dream home safely without wasting budget.</p>
-            <ul class="check-list">
-              <li>Civil engineer POV on your requirement</li>
-              <li>Plot and budget discussion</li>
-              <li>Healthy layout and cost-saving direction</li>
-            </ul>
-            <a class="btn btn-secondary" href="#contact">Enquire Now</a>
-          </div>
-
-          <div class="pricing-card featured">
-            <h3>Budget-Smart Civil Plan</h3>
-            <div class="price">₹24,999<span>for civil planning and municipality support</span></div>
-            <p>Best for owners who want a practical dream home plan with approval guidance and budget control.</p>
-            <ul class="check-list">
-              <li>Civil planning direction</li>
-              <li>Healthy and practical layout guidance</li>
-              <li>Municipality approval support</li>
-              <li>Construction-ready cost clarity</li>
-            </ul>
-            <a class="btn btn-primary" href="#contact">Book Consultation</a>
-          </div>
-
-          <div class="pricing-card">
-            <h3>Complete Civil Engineering Support</h3>
-            <div class="price">Custom<span>for larger dream home projects</span></div>
-            <p>Best for bigger properties, complex sites, or owners who want end-to-end civil engineering guidance.</p>
-            <ul class="check-list">
-              <li>Detailed civil planning package</li>
-              <li>Approval-focused documentation</li>
-              <li>Budget-conscious execution guidance</li>
-            </ul>
-            <a class="btn btn-secondary" href="#contact">Request Quote</a>
-          </div>
+        <div class="card-soft p-6">
+          <div class="text-3xl mb-3">🏗️</div>
+          <h3 class="font-bold text-lg mb-2">Full Home Construction</h3>
+          <p class="text-sm text-gray-600">Complete turnkey home construction from foundation to finishing, delivered as per plan.</p>
         </div>
+
+        <div class="card-soft p-6">
+          <div class="text-3xl mb-3">👷</div>
+          <h3 class="font-bold text-lg mb-2">Site Supervision</h3>
+          <p class="text-sm text-gray-600">Professional on-site & remote supervision by licensed engineers (TPI) to ensure quality construction work.</p>
+        </div>
+
+        <div class="card-soft p-6">
+          <div class="text-3xl mb-3">📊</div>
+          <h3 class="font-bold text-lg mb-2">
+            BOQ Preparation
+            <span class="approx-badge">Approx</span>
+          </h3>
+          <p class="text-sm text-gray-600">Detailed Bill of Quantities with approximate material estimates, labor costs, and project budgeting.</p>
+        </div>
+
+        <div class="card-soft p-6">
+          <div class="text-3xl mb-3">💼</div>
+          <h3 class="font-bold text-lg mb-2">Engineering Consultancy</h3>
+          <p class="text-sm text-gray-600">Professional consultation for structural design, material selection, and project planning by experts.</p>
+        </div>
+
+        <div class="card-soft p-6">
+          <div class="text-3xl mb-3">🔨</div>
+          <h3 class="font-bold text-lg mb-2">Renovation & Remodeling</h3>
+          <p class="text-sm text-gray-600">Transform your existing home into your <strong class="text-[#E8861A]">dream space</strong> with expert renovation, extensions, and modifications.</p>
+        </div>
+
       </div>
-    </section>
+    </div>
 
-    <section class="section section-alt" id="contact">
-      <div class="container">
-        <div class="contact-card">
+    <div class="text-center mt-12 p-8 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-2xl border border-orange-100">
+      <p class="text-gray-600 mb-4">Need a custom service or have questions?</p>
+      <a href="#contact" class="inline-block bg-[#1A1714] text-white px-6 py-3 rounded-full font-bold hover:bg-[#E8861A] transition">
+        💬 Get Custom Quote
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="process" class="py-20 px-5 bg-[#FBF9F5]">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-[#E8861A] font-bold text-xs uppercase tracking-widest">Simple Process</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold mt-3 mb-4">
+        <span class="dream-text">How It</span> Works
+      </h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">
+        Get your professional home plan in 3 easy steps — no office visits required!
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 relative">
+      
+      <div class="card-soft p-8 text-center reveal">
+        <div class="step-number mx-auto mb-6">1</div>
+        <h3 class="font-bold text-xl mb-3">Share Your Requirements</h3>
+        <p class="text-gray-600 text-sm">Tell us your plot size, service needed, budget, and any special requirements via WhatsApp or our form.</p>
+      </div>
+
+      <div class="card-soft p-8 text-center reveal">
+        <div class="step-number mx-auto mb-6">2</div>
+        <h3 class="font-bold text-xl mb-3">We Design Your Plan</h3>
+        <p class="text-gray-600 text-sm">Our licensed civil engineers handle your project — from planning to structural analysis to construction supervision.</p>
+      </div>
+
+      <div class="card-soft p-8 text-center reveal">
+        <div class="step-number mx-auto mb-6">3</div>
+        <h3 class="font-bold text-xl mb-3">Get Your Deliverables</h3>
+        <p class="text-gray-600 text-sm">Receive your complete plan, reports, or completed construction with full quality assurance and support.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICING SECTION -->
+<section id="pricing" class="py-20 px-5 bg-white">
+  <div class="max-w-6xl mx-auto">
+    
+    <div class="text-center mb-4">
+      <div class="transparent-badge">
+        🔥 Limited Time Offer · TRANSPARENT PRICING
+      </div>
+    </div>
+    
+    <div class="text-center mb-12">
+      <h2 class="font-display text-3xl sm:text-5xl font-bold mt-3 mb-4">
+        Choose Your <span class="dream-text">Dream Home</span> Plan Package
+      </h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">
+        No hidden charges. Pay only for what you need.
+      </p>
+    </div>
+
+    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+      
+      <div class="card-soft p-8 relative">
+        <div class="absolute top-4 right-4 bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-bold">SAVE 29%</div>
+        <h3 class="font-bold text-xl mb-2">Basic Plan</h3>
+        <div class="mb-4">
+          <span class="text-gray-400 line-through text-lg">₹10,999</span>
+          <div class="text-4xl font-bold text-[#E8861A]">₹7,999</div>
+          <div class="text-xs text-green-600 font-bold mt-1">You Save ₹3,000!</div>
+        </div>
+        <p class="text-xs text-gray-500 mb-6">Perfect for small plots up to 1200 sq ft</p>
+        <ul class="text-sm text-gray-600 space-y-3 mb-8">
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> 2D Floor Plan</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> Room Layout & Dimensions</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> 1 Revision Included</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> Vastu Compliance</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> Delivered in 5 Days</li>
+        </ul>
+        <a href="#contact" class="block text-center border border-gray-200 py-3 rounded-xl font-bold hover:border-[#E8861A] hover:bg-orange-50 transition">Choose Basic →</a>
+      </div>
+
+      <div class="card-soft p-8 relative border-2 border-[#E8861A] shadow-2xl scale-105">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E8861A] text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">⭐ Most Popular</div>
+        <h3 class="font-bold text-xl mb-2">Standard Plan</h3>
+        <div class="mb-4">
+          <span class="text-gray-400 line-through text-lg">₹14,999</span>
+          <div class="text-4xl font-bold text-[#E8861A]">₹10,999</div>
+          <div class="text-xs text-green-600 font-bold mt-1">You Save ₹4,000!</div>
+        </div>
+        <p class="text-xs text-gray-500 mb-6">Best for medium plots up to 2000 sq ft</p>
+        <ul class="text-sm text-gray-600 space-y-3 mb-8">
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> Everything in Basic</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> 3D Elevation Design</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> Municipality Documents</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> 2 Revisions Included</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> Cost Estimation (Approx)</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> Delivered in 5 Days</li>
+        </ul>
+        <a href="#contact" class="block text-center bg-[#E8861A] text-white py-3 rounded-xl font-bold shadow-lg hover:bg-[#C96F0C] transition">Get Started →</a>
+      </div>
+
+      <div class="card-soft p-8 relative">
+        <h3 class="font-bold text-xl mb-2">Premium Plan</h3>
+        <div class="mb-4">
+          <span class="text-gray-400 line-through text-lg">₹19,999</span>
+          <div class="text-4xl font-bold text-[#E8861A]">₹14,999</div>
+          <div class="text-xs text-green-600 font-bold mt-1">You Save ₹5,000!</div>
+        </div>
+        <p class="text-xs text-gray-500 mb-6">Complete package for large homes</p>
+        <ul class="text-sm text-gray-600 space-y-3 mb-8">
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> Everything in Standard</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> Structural Drawings</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> Engineer Consultation</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> BOQ Preparation (Approx)</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> Unlimited Revisions</li>
+          <li class="flex items-start gap-2"><span class="text-green-600 font-bold">✓</span> Priority Support</li>
+        </ul>
+        <a href="#contact" class="block text-center border border-gray-200 py-3 rounded-xl font-bold hover:border-[#E8861A] hover:bg-orange-50 transition">Choose Premium →</a>
+      </div>
+
+    </div>
+
+    <div class="mt-8 max-w-3xl mx-auto bg-orange-50 border border-orange-100 rounded-2xl p-6 text-center">
+      <h4 class="font-bold text-[#E8861A] mb-2">💡 Extra Revisions Available</h4>
+      <p class="text-sm text-gray-600">Need more revisions than included in your plan? Additional revisions are available at <strong>₹2,000-₹3,000 per revision</strong> depending on the complexity of changes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HAPPY HOMEOWNERS -->
+<section id="testimonials" class="py-20 px-5 bg-[#FBF9F5]">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-[#E8861A] font-bold text-xs uppercase tracking-widest">⭐ Happy Homeowners</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold mt-3 mb-4">
+        <span class="dream-text">1000+ Families</span><br>
+        Trust BuildClarity
+      </h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">
+        Trusted by homeowners across Maharashtra and Gujarat
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      
+      <div class="card-soft p-6">
+        <div class="flex gap-1 mb-3 text-yellow-400">⭐⭐⭐⭐⭐</div>
+        <p class="text-gray-700 text-sm mb-4 italic">"BuildClarity ka plan ekdum perfect tha! Vastu compliance bhi sahi, aur municipality mein pehli baar approval mil gaya. Saved ₹15,000!"</p>
+        <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+          <div class="w-10 h-10 rounded-full bg-orange-100 grid place-items-center font-bold text-[#E8861A]">R</div>
           <div>
-            <span class="eyebrow">Talk to a Civil Engineer</span>
-            <h2>Tell me about your dream home requirement.</h2>
-            <p>
-              Share your plot details, budget, and expectations. I will guide you with a practical civil engineering POV before you start planning or construction.
-            </p>
+            <div class="font-bold text-sm">Rajesh Patel</div>
+            <div class="text-xs text-gray-500">Pune · 3BHK Bungalow</div>
           </div>
-
-          <form id="leadForm">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="tel" name="phone" placeholder="Phone Number" required />
-            <input type="text" name="location" placeholder="Plot Location / City" required />
-            <select name="service" required>
-              <option value="">Select Service</option>
-              <option>Civil Engineer Consultation</option>
-              <option>Municipality Approval Support</option>
-              <option>Budget-Smart Dream Home Planning</option>
-            </select>
-            <textarea name="message" placeholder="Tell me about your plot, budget, and dream home requirement..."></textarea>
-            <button class="btn btn-primary" type="submit">Send Enquiry</button>
-          </form>
         </div>
       </div>
-    </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <p><strong>BuildClarity.in</strong> — Plan clearly. Build confidently.</p>
+      <div class="card-soft p-6">
+        <div class="flex gap-1 mb-3 text-yellow-400">⭐⭐⭐⭐⭐</div>
+        <p class="text-gray-700 text-sm mb-4 italic">"Vastu compliant plan mila, ghar ke har corner mein positive energy hai. Family blessed feel kar rahi hai. Highly recommended!"</p>
+        <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+          <div class="w-10 h-10 rounded-full bg-orange-100 grid place-items-center font-bold text-[#E8861A]">P</div>
+          <div>
+            <div class="font-bold text-sm">Priya Sharma</div>
+            <div class="text-xs text-gray-500">Ahmedabad · 4BHK Villa</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-soft p-6">
+        <div class="flex gap-1 mb-3 text-yellow-400">⭐⭐⭐⭐⭐</div>
+        <p class="text-gray-700 text-sm mb-4 italic">"Sirf 2 hafte mein municipality approval mil gaya! Plan quality top-class hai, construction wale ne bhi tareef ki."</p>
+        <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+          <div class="w-10 h-10 rounded-full bg-orange-100 grid place-items-center font-bold text-[#E8861A]">A</div>
+          <div>
+            <div class="font-bold text-sm">Amit Desai</div>
+            <div class="text-xs text-gray-500">Surat · 2BHK Home</div>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
-      link.addEventListener("click", () => {
-        const target = document.querySelector(link.getAttribute("href"));
-        if (target) target.scrollIntoView({ behavior: "smooth" });
-      });
-    });
+<!-- CONTACT FORM -->
+<section id="contact" class="py-20 px-5 bg-white">
+  <div class="max-w-3xl mx-auto card-soft p-8 sm:p-12 shadow-2xl">
+    <div class="text-center mb-10">
+      <span class="text-[#E8861A] font-bold text-xs uppercase tracking-widest">📞 Get Started</span>
+      <h2 class="font-display text-3xl font-bold mt-3 mb-2">
+        Tell Us About Your <span class="dream-text">Dream Home</span>
+      </h2>
+      <p class="text-gray-500">Engineer response in 2 hours guaranteed.</p>
+    </div>
+    <form class="space-y-5" onsubmit="alert('Thank you! Your Dream Home enquiry has been received. We will WhatsApp you within 2 hours.'); return false;">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <input type="text" placeholder="Your Name" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm focus:border-[#E8861A] focus:ring-2 focus:ring-orange-100 outline-none transition" required>
+        <input type="tel" placeholder="WhatsApp Number" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm focus:border-[#E8861A] focus:ring-2 focus:ring-orange-100 outline-none transition" required>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <input type="text" placeholder="Plot Size (e.g. 30x40)" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm focus:border-[#E8861A] focus:ring-2 focus:ring-orange-100 outline-none transition" required>
+        <input type="text" placeholder="City" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm focus:border-[#E8861A] focus:ring-2 focus:ring-orange-100 outline-none transition" required>
+      </div>
+      <select class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm focus:border-[#E8861A] focus:ring-2 focus:ring-orange-100 outline-none transition" required>
+        <option value="">Select Service Needed</option>
+        <option>Basic Plan (₹7,999) - 2D Floor Plan</option>
+        <option>Standard Plan (₹10,999) - 2D + 3D + Municipality</option>
+        <option>Premium Plan (₹14,999) - Complete Package</option>
+        <option>Construction Services (MH & GJ only)</option>
+        <option>Renovation & Remodeling</option>
+        <option>Custom Quote Required</option>
+      </select>
+      <textarea placeholder="Tell us about your dream home - bedrooms, special requirements, etc." class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm h-32 focus:border-[#E8861A] focus:ring-2 focus:ring-orange-100 outline-none transition"></textarea>
+      <button class="w-full bg-[#E8861A] text-white py-4 rounded-xl font-bold shadow-lg shadow-orange-100 hover:bg-[#C96F0C] transition">
+        Send Enquiry →
+      </button>
+    </form>
+    <div class="mt-8 text-center border-t pt-6">
+      <p class="text-xs text-gray-400 mb-4 uppercase tracking-widest font-bold">Or Chat Directly</p>
+      <a href="https://wa.me/919574456327" class="inline-flex items-center gap-2 text-[#25D366] font-bold">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        WhatsApp Support
+      </a>
+    </div>
+  </div>
+</section>
 
-    document.getElementById("leadForm").addEventListener("submit", function (event) {
-      event.preventDefault();
-      alert("Thank you! Your dream home enquiry has been received.");
-      this.reset();
+<!-- FOOTER -->
+<footer class="bg-[#1A1714] text-white py-12 px-5">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="flex flex-col items-center md:items-start">
+      <div class="flex items-center gap-3 mb-4">
+        <img src="images/logo.png" alt="BuildClarity Logo" class="w-12 h-12 rounded-full object-cover">
+        <span class="font-display font-bold text-white text-lg">BUILDCLARITY</span>
+      </div>
+      <p class="text-gray-500 text-sm">plan@buildclarity.in</p>
+      <p class="text-gray-500 text-sm">+91 95744 56327</p>
+    </div>
+    <div class="text-center md:text-right">
+      <p class="text-gray-400 text-sm italic mb-2">"Plan Clearly. Build Confidently."</p>
+      <p class="text-gray-400 text-sm">© 2026 BuildClarity. Engineer-led Planning.</p>
+      <p class="text-gray-600 text-[10px] uppercase tracking-widest mt-2">Udyam Registered Micro Enterprise</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOATING BUTTON (No Pulse) -->
+<a href="https://wa.me/919574456327" class="whatsapp-float" target="_blank">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
-  </script>
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      const target = document.querySelector(link.getAttribute("href"));
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+</script>
 </body>
 </html>
